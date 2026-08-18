@@ -1,0 +1,652 @@
+/* Variables de Color y Tipografía */
+:root {
+    --turquoise: #00B4D8;
+    --turquoise-light: #90E0EF;
+    --purple: #7209B7;
+    --purple-light: #B5179E;
+    --white: #FFFFFF;
+    --text-dark: #2B2D42;
+    --bg-light: #F8F9FA;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navegación */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    color: var(--purple);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.logo span {
+    font-size: 0.8rem;
+    color: var(--turquoise);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--turquoise);
+}
+
+.btn-primary-small,
+.btn-primary {
+    background-color: var(--turquoise);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+}
+
+.btn-primary {
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+.btn-primary i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+}
+
+/* --- Botón Flotante Animado --- */
+.btn-float {
+    animation: floatButton 3s ease-in-out infinite;
+    box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+}
+
+.btn-float:hover {
+    background-color: var(--purple);
+    color: var(--white);
+    animation-play-state: paused;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(114, 9, 183, 0.4);
+}
+
+@keyframes floatButton {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+    }
+
+    50% {
+        transform: translateY(-12px);
+        box-shadow: 0 15px 25px rgba(0, 180, 216, 0.6);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+    }
+}
+
+/* Hero Section */
+.hero {
+    padding: 130px 0 80px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0fbfc 100%);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h2 {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    color: var(--purple);
+    line-height: 1.15;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: #4a4d63;
+}
+
+/* Estilos de Nombre y Cédula */
+.hero-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--purple);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.cedula {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    margin-bottom: 35px;
+    padding-left: 15px;
+    border-left: 4px solid var(--turquoise);
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+/* Gráficos del Hero */
+.hero-graphics {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Círculo Morado (ahora convertido en mancha animada) */
+.purple-circle {
+    position: absolute;
+    bottom: -280px;
+    right: -100px;
+    width: 650px;
+    height: 650px;
+    background-color: var(--purple-light);
+    z-index: 1;
+    opacity: 0.85;
+    /* Le damos forma irregular como la mancha azul */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    /* Le ponemos la misma animación (morph) pero un poco más lenta y al revés para que no se muevan igualito */
+    animation: morph 11s ease-in-out infinite reverse, floatPurple 10s ease-in-out infinite;
+}
+
+/* Mancha / Nube */
+.blob {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 550px;
+    height: 550px;
+    background-color: var(--turquoise);
+    opacity: 0.75;
+    z-index: 2;
+    animation: morph 8s ease-in-out infinite;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.hero-img {
+    position: relative;
+    z-index: 3;
+    max-height: 500px;
+    width: auto;
+    background-color: transparent;
+}
+
+/* Especialidades */
+.specialties {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 60px;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.grid-specialties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-light);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--turquoise);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    color: var(--purple);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.card ul {
+    list-style-position: inside;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+}
+
+/* --- Información (Horarios y Ubicación) MEJORADO --- */
+.info-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--turquoise) 0%, var(--purple) 100%);
+    position: relative;
+}
+
+.info-section .section-title {
+    margin-bottom: 50px;
+}
+
+.info-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.info-box {
+    background: var(--white);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    flex: 1;
+    max-width: 500px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Línea de acento superior para las tarjetas */
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--turquoise);
+}
+
+.info-box:nth-child(2)::before {
+    background: var(--purple);
+}
+
+.info-box i.fa-clock,
+.info-box i.fa-location-dot {
+    font-size: 3rem;
+    color: var(--purple);
+    margin-bottom: 25px;
+    display: inline-block;
+    background: var(--bg-light);
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-box:nth-child(2) i.fa-location-dot {
+    color: var(--turquoise);
+}
+
+.info-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+/* Lista de Horarios */
+.schedule-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.schedule-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.schedule-list li:last-child {
+    border-bottom: none;
+}
+
+.schedule-list li span:first-child {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.cita-nota {
+    display: inline-block;
+    background: var(--bg-light);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--purple);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+/* Detalles de Ubicación */
+.location-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.address-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.address-details i {
+    font-size: 2rem;
+    color: var(--purple);
+}
+
+.address-details p {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.btn-outline-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid var(--turquoise);
+    color: var(--turquoise);
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline-primary i {
+    margin-right: 5px;
+}
+
+.btn-outline-primary:hover {
+    background: var(--turquoise);
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+}
+
+/* Mapa Contenedor */
+.map-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 5px solid var(--white);
+    background-color: var(--bg-light);
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 70px 0 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-brand h2 {
+    font-family: var(--font-heading);
+    color: var(--turquoise);
+    font-weight: 700;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--turquoise);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* --- Animaciones Keyframes --- */
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+@keyframes floatPurple {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(30px) scale(1.02);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Clases de animación JS */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Responsividad (Móviles) */
+@media (max-width: 768px) {
+
+    .hero-container,
+    .info-container,
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-box {
+        max-width: 100%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    .hero-name {
+        font-size: 1.3rem;
+    }
+
+    .cedula {
+        border-left: none;
+        border-bottom: 4px solid var(--turquoise);
+        padding-bottom: 10px;
+    }
+
+    .hero-graphics {
+        height: 300px;
+        width: 100%;
+        margin-top: 30px;
+        overflow: visible;
+        /* Cambiamos a visible para que no recorte el círculo */
+    }
+
+    .purple-circle {
+        width: 350px;
+        height: 350px;
+        bottom: -80px;
+        /* ¡Mucho más abajo! (Antes estaba en -20px) */
+        right: auto;
+        left: 50%;
+        margin-left: -175px;
+        /* La mitad del ancho para que siga centrado */
+    }
+
+    .blob {
+        width: 400px;
+        height: 400px;
+        right: 50%;
+        transform: translateX(50%);
+        top: 0px;
+    }
+
+    .hero-img {
+        max-height: 380px;
+    }
+
+    .footer-container {
+        gap: 30px;
+    }
+}

@@ -524,6 +524,40 @@ footer {
     text-align: center;
     font-size: 0.95rem;
     color: #aaa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* --- ESTILOS CRÉDITO Y ENLACE DETECH --- */
+.designer-credit {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.detech-link {
+    color: var(--turquoise);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efecto Brillo (Glow) al pasar cursor (hover), clic (active) o tap en móviles (focus) */
+.detech-link:hover,
+.detech-link:active,
+.detech-link:focus {
+    color: var(--white);
+    text-shadow:
+        0 0 5px var(--turquoise),
+        0 0 10px var(--turquoise),
+        0 0 20px var(--turquoise-light),
+        0 0 40px var(--turquoise-light);
+    transform: scale(1.05);
+    outline: none;
+    /* Quita el recuadro por defecto al hacer tap en celulares */
 }
 
 /* --- Animaciones Keyframes --- */

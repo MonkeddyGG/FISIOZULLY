@@ -1,12 +1,14 @@
-/* Variables de Color y Tipografía */
+/* Variables de Color y Tipografía (Paleta Pastel) */
 :root {
-    --turquoise: #00B4D8;
-    --turquoise-light: #90E0EF;
-    --purple: #7209B7;
-    --purple-light: #B5179E;
+    --pastel-blue: #8EADC8;
+    --pastel-blue-light: #C5D6E3;
+    --pastel-green-dark: #7B9E87;
+    /* Tono más oscuro de verde para legibilidad en textos */
+    --pastel-green: #A9C5B4;
     --white: #FFFFFF;
-    --text-dark: #2B2D42;
-    --bg-light: #F8F9FA;
+    --text-dark: #4A4E4D;
+    /* Gris cálido/marrón oscuro para suavizar el contraste */
+    --beige: #F4EFE6;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -20,7 +22,7 @@
 body {
     font-family: var(--font-body);
     color: var(--text-dark);
-    background-color: var(--bg-light);
+    background-color: var(--beige);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -51,14 +53,14 @@ header {
 
 .logo h1 {
     font-family: var(--font-heading);
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     font-size: 1.6rem;
     font-weight: 700;
 }
 
 .logo span {
     font-size: 0.8rem;
-    color: var(--turquoise);
+    color: var(--pastel-blue);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -79,12 +81,12 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--turquoise);
+    color: var(--pastel-blue);
 }
 
 .btn-primary-small,
 .btn-primary {
-    background-color: var(--turquoise);
+    background-color: var(--pastel-blue);
     color: var(--white);
     padding: 10px 20px;
     border-radius: 25px;
@@ -108,38 +110,38 @@ nav a:hover {
 /* --- Botón Flotante Animado --- */
 .btn-float {
     animation: floatButton 3s ease-in-out infinite;
-    box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+    box-shadow: 0 8px 20px rgba(142, 173, 200, 0.4);
 }
 
 .btn-float:hover {
-    background-color: var(--purple);
+    background-color: var(--pastel-green-dark);
     color: var(--white);
     animation-play-state: paused;
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(114, 9, 183, 0.4);
+    box-shadow: 0 12px 25px rgba(123, 158, 135, 0.4);
 }
 
 @keyframes floatButton {
     0% {
         transform: translateY(0);
-        box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+        box-shadow: 0 8px 20px rgba(142, 173, 200, 0.4);
     }
 
     50% {
         transform: translateY(-12px);
-        box-shadow: 0 15px 25px rgba(0, 180, 216, 0.6);
+        box-shadow: 0 15px 25px rgba(142, 173, 200, 0.6);
     }
 
     100% {
         transform: translateY(0);
-        box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+        box-shadow: 0 8px 20px rgba(142, 173, 200, 0.4);
     }
 }
 
 /* Hero Section */
 .hero {
     padding: 130px 0 80px;
-    background: linear-gradient(135deg, #ffffff 0%, #e0fbfc 100%);
+    background: linear-gradient(135deg, var(--white) 0%, var(--beige) 100%);
     overflow: hidden;
 }
 
@@ -157,7 +159,7 @@ nav a:hover {
 .hero-text h2 {
     font-family: var(--font-heading);
     font-size: 3.8rem;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     line-height: 1.15;
     margin-bottom: 25px;
     font-weight: 700;
@@ -166,14 +168,14 @@ nav a:hover {
 .hero-text p {
     font-size: 1.25rem;
     margin-bottom: 30px;
-    color: #4a4d63;
+    color: var(--text-dark);
 }
 
 /* Estilos de Nombre y Cédula */
 .hero-name {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     font-weight: 700;
     margin-bottom: 5px;
 }
@@ -183,7 +185,7 @@ nav a:hover {
     color: var(--text-dark);
     margin-bottom: 35px;
     padding-left: 15px;
-    border-left: 4px solid var(--turquoise);
+    border-left: 4px solid var(--pastel-blue);
     font-family: var(--font-heading);
     font-weight: 500;
 }
@@ -198,30 +200,28 @@ nav a:hover {
     align-items: flex-end;
 }
 
-/* Círculo Morado (ahora convertido en mancha animada) */
+/* Círculo Animado (ahora Verde Pastel) */
 .purple-circle {
     position: absolute;
     bottom: -280px;
     right: -100px;
     width: 650px;
     height: 650px;
-    background-color: var(--purple-light);
+    background-color: var(--pastel-green);
     z-index: 1;
     opacity: 0.85;
-    /* Le damos forma irregular como la mancha azul */
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    /* Le ponemos la misma animación (morph) pero un poco más lenta y al revés para que no se muevan igualito */
     animation: morph 11s ease-in-out infinite reverse, floatPurple 10s ease-in-out infinite;
 }
 
-/* Mancha / Nube */
+/* Mancha / Nube (ahora Azul Pastel) */
 .blob {
     position: absolute;
     top: -40px;
     right: -60px;
     width: 550px;
     height: 550px;
-    background-color: var(--turquoise);
+    background-color: var(--pastel-blue);
     opacity: 0.75;
     z-index: 2;
     animation: morph 8s ease-in-out infinite;
@@ -247,7 +247,7 @@ nav a:hover {
     text-align: center;
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     margin-bottom: 60px;
 }
 
@@ -262,22 +262,22 @@ nav a:hover {
 }
 
 .card {
-    background-color: var(--bg-light);
+    background-color: var(--beige);
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 5px solid var(--turquoise);
+    border-top: 5px solid var(--pastel-blue);
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .card-icon {
     font-size: 2.8rem;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     margin-bottom: 20px;
 }
 
@@ -291,7 +291,7 @@ nav a:hover {
 
 .card ul {
     list-style-position: inside;
-    color: #555;
+    color: var(--text-dark);
     font-size: 1.05rem;
 }
 
@@ -302,7 +302,7 @@ nav a:hover {
 /* --- Información (Horarios y Ubicación) MEJORADO --- */
 .info-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--turquoise) 0%, var(--purple) 100%);
+    background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-green-dark) 100%);
     position: relative;
 }
 
@@ -324,7 +324,7 @@ nav a:hover {
     text-align: center;
     flex: 1;
     max-width: 500px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
@@ -332,7 +332,7 @@ nav a:hover {
 
 .info-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Línea de acento superior para las tarjetas */
@@ -343,20 +343,20 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 6px;
-    background: var(--turquoise);
+    background: var(--pastel-blue);
 }
 
-.info-box:nth-child(2)::before {
-    background: var(--purple);
+.info-box:nth-child(2):before {
+    background: var(--pastel-green-dark);
 }
 
 .info-box i.fa-clock,
 .info-box i.fa-location-dot {
     font-size: 3rem;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     margin-bottom: 25px;
     display: inline-block;
-    background: var(--bg-light);
+    background: var(--beige);
     width: 90px;
     height: 90px;
     line-height: 90px;
@@ -365,7 +365,7 @@ nav a:hover {
 }
 
 .info-box:nth-child(2) i.fa-location-dot {
-    color: var(--turquoise);
+    color: var(--pastel-blue);
 }
 
 .info-box h3 {
@@ -390,7 +390,7 @@ nav a:hover {
     padding: 15px 0;
     border-bottom: 1px dashed #ccc;
     font-size: 1.1rem;
-    color: #555;
+    color: var(--text-dark);
 }
 
 .schedule-list li:last-child {
@@ -404,10 +404,10 @@ nav a:hover {
 
 .cita-nota {
     display: inline-block;
-    background: var(--bg-light);
+    background: var(--beige);
     padding: 10px 20px;
     border-radius: 20px;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
     font-weight: 600;
     font-size: 0.95rem;
     margin-top: 10px;
@@ -417,7 +417,7 @@ nav a:hover {
 .location-text {
     font-size: 1.1rem;
     margin-bottom: 25px;
-    color: #555;
+    color: var(--text-dark);
     line-height: 1.6;
 }
 
@@ -426,7 +426,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    background: var(--bg-light);
+    background: var(--beige);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 30px;
@@ -435,7 +435,7 @@ nav a:hover {
 
 .address-details i {
     font-size: 2rem;
-    color: var(--purple);
+    color: var(--pastel-green-dark);
 }
 
 .address-details p {
@@ -448,8 +448,8 @@ nav a:hover {
 .btn-outline-primary {
     display: inline-block;
     padding: 12px 25px;
-    border: 2px solid var(--turquoise);
-    color: var(--turquoise);
+    border: 2px solid var(--pastel-blue);
+    color: var(--pastel-blue);
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
@@ -461,9 +461,9 @@ nav a:hover {
 }
 
 .btn-outline-primary:hover {
-    background: var(--turquoise);
+    background: var(--pastel-blue);
     color: var(--white);
-    box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+    box-shadow: 0 5px 15px rgba(142, 173, 200, 0.3);
 }
 
 /* Mapa Contenedor */
@@ -473,9 +473,9 @@ nav a:hover {
     margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     border: 5px solid var(--white);
-    background-color: var(--bg-light);
+    background-color: var(--beige);
 }
 
 /* Footer */
@@ -496,7 +496,7 @@ footer {
 
 .footer-brand h2 {
     font-family: var(--font-heading);
-    color: var(--turquoise);
+    color: var(--pastel-blue);
     font-weight: 700;
 }
 
@@ -517,7 +517,7 @@ footer {
 }
 
 .footer-social a:hover {
-    color: var(--turquoise);
+    color: var(--pastel-blue);
 }
 
 .footer-bottom {
@@ -536,7 +536,7 @@ footer {
 }
 
 .detech-link {
-    color: var(--turquoise);
+    color: var(--pastel-blue);
     text-decoration: none;
     font-weight: 700;
     font-family: var(--font-heading);
@@ -551,13 +551,12 @@ footer {
 .detech-link:focus {
     color: var(--white);
     text-shadow:
-        0 0 5px var(--turquoise),
-        0 0 10px var(--turquoise),
-        0 0 20px var(--turquoise-light),
-        0 0 40px var(--turquoise-light);
+        0 0 5px var(--pastel-blue),
+        0 0 10px var(--pastel-blue),
+        0 0 20px var(--pastel-blue-light),
+        0 0 40px var(--pastel-blue-light);
     transform: scale(1.05);
     outline: none;
-    /* Quita el recuadro por defecto al hacer tap en celulares */
 }
 
 /* --- Animaciones Keyframes --- */
@@ -645,7 +644,7 @@ footer {
 
     .cedula {
         border-left: none;
-        border-bottom: 4px solid var(--turquoise);
+        border-bottom: 4px solid var(--pastel-blue);
         padding-bottom: 10px;
     }
 
@@ -654,18 +653,15 @@ footer {
         width: 100%;
         margin-top: 30px;
         overflow: visible;
-        /* Cambiamos a visible para que no recorte el círculo */
     }
 
     .purple-circle {
         width: 350px;
         height: 350px;
         bottom: -80px;
-        /* ¡Mucho más abajo! (Antes estaba en -20px) */
         right: auto;
         left: 50%;
         margin-left: -175px;
-        /* La mitad del ancho para que siga centrado */
     }
 
     .blob {
